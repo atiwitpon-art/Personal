@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TV Parts Center - ศูนย์รวมทีวีและอะไหล่ทีวีมือสอง แท้ถอด 100%</title>
+    <title>Demon & Electronics - ศูนย์รวมทีวีและอะไหล่ทีวีมือสอง แท้ถอด 100%</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -39,65 +39,92 @@
         body { font-family: 'Prompt', sans-serif; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col pb-16 md:pb-0">
 
-    <div class="bg-slate-900 text-slate-300 text-xs py-1.5 px-4 text-center flex justify-between items-center max-w-7xl mx-auto w-full">
-        <div class="hidden sm:flex items-center gap-4">
-            <span><i class="fa-solid fa-truck-fast text-brand-500 mr-1"></i> จัดส่งด่วนทั่วไทย ห่อกันกระแทกหนาพิเศษ</span>
-            <span><i class="fa-solid fa-microchip text-emerald-400 mr-1"></i> อะไหล่ทุกชิ้นผ่านการทดสอบ 100%</span>
-        </div>
-        <div class="flex items-center gap-4 mx-auto sm:mx-0">
-            <span><i class="fa-solid fa-phone text-xs text-amber-400 mr-1"></i> สายด่วนช่าง: 065-568-6234 </span>
-            <a href="javascript:openLineChat()" class="hover:text-emerald-400 transition"><i class="fa-brands fa-line text-line text-sm mr-1"></i> ปรึกษาช่าง </a>
-            <a href="https://www.facebook.com/share/1BhxT8Thap/?mibextid=wwXIfr" target="_blank" class="hover:text-blue-400 transition ml-2"><i class="fa-brands fa-facebook text-facebook text-sm mr-1"></i> P'mon A Lone </a>
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="hidden sm:flex items-center gap-4">
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-truck-fast text-brand-400"></i> จัดส่งด่วนทั่วไทย ห่อกันกระแทกหนาพิเศษ</span>
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-microchip text-emerald-400"></i> อะไหล่ผ่านการเทสทดสอบทุกชิ้น 100%</span>
+            </div>
+            <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
+                <div class="flex items-center gap-2 border-r border-slate-700 pr-3">
+                    <span class="inline-flex items-center gap-1.5 bg-slate-800 text-slate-200 px-2.5 py-0.5 rounded-full text-[11px] font-medium border border-slate-700">
+                        <i class="fa-solid fa-eye text-brand-400"></i>
+                        <span>เข้าชม:</span>
+                        <strong id="headerVisitorCount" class="text-amber-400 font-bold">...</strong>
+                    </span>
+                    <button onclick="toggleSiteLike()" id="headerLikeBtn" class="inline-flex items-center gap-1.5 bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 px-2.5 py-0.5 rounded-full text-[11px] font-medium border border-rose-500/30 transition cursor-pointer">
+                        <i class="fa-solid fa-heart text-rose-500" id="headerLikeIcon"></i>
+                        <span>ถูกใจร้าน:</span>
+                        <strong id="headerLikeCount" class="text-rose-400 font-bold">...</strong>
+                    </button>
+                </div>
+
+                <a href="tel:0655686234" class="hover:text-amber-400 transition flex items-center gap-1">
+                    <i class="fa-solid fa-phone text-amber-400"></i> สายด่วนช่าง: 065-568-6234
+                </a>
+                <div class="flex items-center gap-3">
+                    <a href="javascript:openLineChat()" class="hover:text-emerald-400 transition flex items-center gap-1">
+                        <i class="fa-brands fa-line text-line text-sm"></i> ปรึกษาช่างฟรี
+                    </a>
+                    <a href="https://www.facebook.com/share/1BhxT8Thap/?mibextid=wwXIfr" target="_blank" class="hover:text-blue-400 transition flex items-center gap-1">
+                        <i class="fa-brands fa-facebook text-facebook text-sm"></i> P'mon A Lone
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <header class="sticky top-0 z-30 bg-white/95 backdrop-blur shadow-sm border-b border-slate-100">
+    <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 gap-3">
-                <!-- Logo -->
-                <div class="flex items-center gap-2 cursor-pointer" onclick="resetFilters()">
-                    <div class="bg-brand-600 text-white p-2 rounded-xl flex items-center justify-center shadow-md shadow-brand-500/20">
+                
+                <div class="flex items-center gap-2.5 cursor-pointer" onclick="resetFilters()">
+                    <div class="bg-gradient-to-tr from-brand-700 to-brand-500 text-white p-2.5 rounded-xl flex items-center justify-center shadow-md shadow-brand-500/20">
                         <i class="fa-solid fa-tv text-xl"></i>
                     </div>
                     <div>
-                        <span class="font-bold text-lg leading-none tracking-tight text-slate-900 block">Demon <span class="text-brand-600">&Electronics</span></span>
-                        <span class="text-[10px] text-slate-500 font-normal">TV & Parts Center (มือสองแท้)</span>
+                        <span class="font-black text-lg leading-none tracking-tight text-slate-900 block">Demon <span class="text-brand-600">& Electronics</span></span>
+                        <span class="text-[10px] text-slate-500 font-medium">TV & Parts Center (ศูนย์รวมอะไหล่แท้)</span>
                     </div>
                 </div>
 
-                <!-- Desktop Search Bar -->
                 <div class="hidden md:flex flex-1 max-w-md mx-4 relative">
-                    <input type="text" id="desktopSearchInput" onkeyup="handleSearch(event)" placeholder="พิมพ์ชื่อรุ่นทีวี เช่น UA43T6000 หรือ รหัสบอร์ด..." 
-                        class="w-full pl-10 pr-24 py-2 border border-slate-200 rounded-full text-sm bg-slate-50 focus:bg-white focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-sm"></i>
-                    <button onclick="applySearch('desktopSearchInput')" class="absolute right-1 top-1 bottom-1 px-4 bg-brand-600 hover:bg-brand-700 text-white rounded-full text-xs font-medium transition">
+                    <input type="text" id="desktopSearchInput" onkeyup="handleSearch(event)" placeholder="พิมพ์ชื่อรุ่น เช่น UA43T6000 หรือ รหัสบอร์ด..." 
+                        class="w-full pl-10 pr-24 py-2 border border-slate-200 rounded-full text-xs bg-slate-50 focus:bg-white focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition shadow-inner">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+                    <button onclick="applySearch('desktopSearchInput')" class="absolute right-1 top-1 bottom-1 px-4 bg-brand-600 hover:bg-brand-700 text-white rounded-full text-xs font-semibold transition flex items-center gap-1">
                         ค้นหา
                     </button>
                 </div>
 
-                <!-- Action Buttons (Cart & Quick Contact) -->
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <button onclick="toggleCartModal()" class="relative p-2.5 text-slate-700 hover:text-brand-600 bg-slate-100 hover:bg-slate-200 rounded-full transition">
-                        <i class="fa-solid fa-cart-shopping text-base"></i>
-                        <span id="cartBadge" class="absolute -top-1 -right-1 bg-rose-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+                <div class="flex items-center gap-2">
+                    <button onclick="toggleWishlistModal()" class="relative p-2.5 text-slate-700 hover:text-rose-600 bg-slate-100 hover:bg-slate-200 rounded-full transition" title="รายการโปรด">
+                        <i class="fa-solid fa-heart text-sm"></i>
+                        <span id="wishlistBadge" class="absolute -top-1 -right-1 bg-rose-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
                     </button>
-                    <a href="javascript:openLineChat()" class="hidden sm:flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-semibold px-3.5 py-2 rounded-full transition shadow-sm">
-                        <i class="fa-brands fa-line text-lg"></i>
-                        <span>แชทสอบถาม</span>
-                    </a>
-                    <button onclick="toggleMobileFilterModal()" class="md:hidden p-2 text-slate-600 hover:text-slate-900">
-                        <i class="fa-solid fa-filter text-xl"></i>
+
+                    <button onclick="toggleCartModal()" class="relative p-2.5 text-slate-700 hover:text-brand-600 bg-slate-100 hover:bg-slate-200 rounded-full transition" title="ตะกร้าสินค้า">
+                        <i class="fa-solid fa-cart-shopping text-sm"></i>
+                        <span id="cartBadge" class="absolute -top-1 -right-1 bg-brand-600 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+                    </button>
+
+                    <button onclick="toggleMobileFilterModal()" class="md:hidden p-2.5 text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-full">
+                        <i class="fa-solid fa-filter text-sm"></i>
                     </button>
                 </div>
             </div>
 
-            <!-- Mobile Search Bar -->
-            <div class="pb-3 pt-1 md:hidden">
-                <div class="relative">
+            <div class="pb-3 pt-1 md:hidden flex gap-2">
+                <div class="relative flex-1">
                     <input type="text" id="mobileSearchInput" onkeyup="handleSearch(event)" placeholder="ค้นหารหัสพาร์ท, บอร์ด, หรือรุ่นทีวี..." 
                         class="w-full pl-9 pr-20 py-2 border border-slate-200 rounded-xl text-xs bg-slate-50 focus:bg-white focus:outline-none focus:border-brand-500">
                     <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs"></i>
@@ -109,225 +136,300 @@
         </div>
     </header>
 
-    <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-brand-900 text-white py-8 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section class="bg-gradient-to-br from-slate-950 via-slate-900 to-brand-950 text-white py-8 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div class="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-            
-            <div class="lg:col-span-7 space-y-3 text-center lg:text-left">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-brand-500/20 text-brand-300 border border-brand-400/30">
-                    <i class="fa-solid fa-circle-check text-emerald-400"></i> ศูนย์รวมอะไหล่แท้ถอด ผ่านการเทสทุกชิ้น
-                </span>
-                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">
-                    ทีวีมือสองคุณภาพ & อะไหล่ทีวีแท้ <br class="hidden sm:inline">
-                    <span class="text-brand-400">ค้นหาง่าย ตรงรุ่น ประกันสูงสุด 30 วัน</span>
+            <div class="lg:col-span-7 space-y-4 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-brand-500/20 text-brand-300 border border-brand-400/30">
+                    <i class="fa-solid fa-shield-check text-emerald-400"></i> ศูนย์รวม อะไหล่ทีวีแท้ถอด 100% ผ่านการทดสอบโดยช่าง
+                </div>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
+                    ทีวีมือสองสภาพดี & อะไหล่แท้ตรงรุ่น <br class="hidden sm:inline">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 to-amber-300">ค้นหาง่าย รหัสตรง มีประกันสินค้า</span>
                 </h1>
-                <p class="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto lg:mx-0">
-                    มีเมนบอร์ด (Mainboard), พาวเวอร์บอร์ด (Power Supply), บอร์ด T-Con, สายแพร และหลอดแบ็คไลท์ ถอดจากเครื่องสภาพดีโดยช่างผู้เชี่ยวชาญ
+                <p class="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                    จำหน่ายเมนบอร์ด (Mainboard), พาวเวอร์บอร์ด (Power Supply), บอร์ด T-Con, สายแพร และหลอดแบ็คไลท์ ทุกรุ่นทุกแบรนด์ ถอดจากเครื่องสภาพดีเยี่ยม
                 </p>
+
+                <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs text-slate-300">
+                    <div class="bg-slate-800/80 backdrop-blur px-3 py-1.5 rounded-xl border border-slate-700/80 flex items-center gap-2">
+                        <i class="fa-solid fa-users text-amber-400 text-sm"></i>
+                        <span>ผู้เข้าชมเว็บทั้งหมด <strong id="heroVisitorCount" class="text-white font-bold">...</strong> ครั้ง</span>
+                    </div>
+                    <button onclick="toggleSiteLike()" class="bg-rose-950/60 hover:bg-rose-900/60 text-rose-200 px-3 py-1.5 rounded-xl border border-rose-800/60 flex items-center gap-2 transition cursor-pointer">
+                        <i class="fa-solid fa-heart text-rose-500 text-sm"></i>
+                        <span>ความไว้วางใจ <strong id="heroLikeCount" class="text-white font-bold">...</strong> ถูกใจ</span>
+                    </button>
+                </div>
             </div>
 
-            <!-- Quick Compatibility Checker Widget -->
-            <div class="lg:col-span-5 bg-white/10 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-white/15 shadow-xl">
-                <div class="flex items-center gap-2 mb-3">
-                    <i class="fa-solid fa-sliders text-amber-400 text-base"></i>
-                    <h2 class="text-sm font-semibold text-white">ค้นหาอะไหล่ตามรุ่นทีวี (Part Finder)</h2>
+            <!-- Quick Part Checker Box -->
+            <div class="lg:col-span-5 bg-slate-900/90 backdrop-blur-md p-5 rounded-2xl border border-slate-800 shadow-xl space-y-3">
+                <div class="flex items-center gap-2 text-amber-400 font-bold text-sm">
+                    <i class="fa-solid fa-screwdriver-wrench"></i> ค้นหาพาร์ทอะไหล่ทีวีด่วน
                 </div>
-                <div class="grid grid-cols-2 gap-2 mb-3 text-xs">
-                    <div>
-                        <label class="block text-slate-300 mb-1">ยี่ห้อ (Brand)</label>
-                        <select id="checkerBrand" class="w-full bg-slate-900/80 text-white border border-slate-700 rounded-lg p-2 focus:outline-none focus:border-brand-400">
-                            <option value="">-- ทั้งหมด --</option>
-                            <option value="Samsung">Samsung</option>
-                            <option value="LG">LG</option>
-                            <option value="Sony">Sony</option>
-                            <option value="TCL">TCL</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-slate-300 mb-1">ประเภทอะไหล่</label>
-                        <select id="checkerType" class="w-full bg-slate-900/80 text-white border border-slate-700 rounded-lg p-2 focus:outline-none focus:border-brand-400">
-                            <option value="">-- ทั้งหมด --</option>
-                            <option value="Mainboard">เมนบอร์ด</option>
-                            <option value="Powerboard">พาวเวอร์บอร์ด</option>
-                            <option value="T-Con">บอร์ด T-Con</option>
-                            <option value="Backlight">หลอดไฟแบ็คไลท์</option>
-                            <option value="TV">ทีวีมือสอง</option>
-                        </select>
-                    </div>
+                <div class="grid grid-cols-2 gap-2 text-slate-800">
+                    <select id="checkerBrand" class="p-2 text-xs rounded-xl border border-slate-200 focus:outline-none">
+                        <option value="">เลือกแบรนด์ทีวี</option>
+                        <option value="Samsung">Samsung</option>
+                        <option value="LG">LG</option>
+                        <option value="Sony">Sony</option>
+                        <option value="TCL">TCL</option>
+                        <option value="Panasonic">Panasonic</option>
+                        <option value="Sharp">Sharp</option>
+                        <option value="Haier">Haier</option>
+                        <option value="Hisense">Hisense</option>
+                        <option value="Aconatic">Aconatic</option>
+                        <option value="Toshiba">Toshiba</option>
+                    </select>
+                    <select id="checkerType" class="p-2 text-xs rounded-xl border border-slate-200 focus:outline-none">
+                        <option value="">เลือกชนิดบอร์ด</option>
+                        <option value="Mainboard">เมนบอร์ด (Mainboard)</option>
+                        <option value="Powerboard">พาวเวอร์บอร์ด (Power Supply)</option>
+                        <option value="T-Con">บอร์ด T-Con</option>
+                        <option value="Backlight">หลอดแบ็คไลท์</option>
+                        <option value="TV">ทีวีมือสอง</option>
+                    </select>
                 </div>
-                <button onclick="runPartFinder()" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-2 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-md">
-                    <i class="fa-solid fa-magnifying-glass"></i> ค้นหาอะไหล่ด่วน
+                <button onclick="runPartFinder()" class="w-full bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold py-2.5 rounded-xl transition shadow-lg flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-magnifying-glass"></i> ค้นหารายการตามตัวเลือก
                 </button>
             </div>
-
         </div>
     </section>
 
-    <div id="apiLoadingState" class="max-w-7xl mx-auto mt-10 text-center py-20 hidden">
-        <i class="fa-solid fa-circle-notch fa-spin text-4xl text-brand-500 mb-4"></i>
-        <h3 class="text-sm font-bold text-slate-700">กำลังดึงข้อมูลสินค้าล่าสุดจากคลัง...</h3>
+    <!-- Loading State Container -->
+    <div id="apiLoadingState" class="max-w-7xl mx-auto px-4 py-16 text-center">
+        <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-brand-600 border-t-transparent"></div>
+        <p class="text-sm font-semibold text-slate-600 mt-4">กำลังโหลดข้อมูลสินค้าและอะไหล่ทีวี...</p>
     </div>
 
-    <!-- Main Content Container -->
-    <main id="mainAppContent" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full opacity-0 transition-opacity duration-500">
-
-        <!-- Category Tabs -->
-        <div class="flex items-center gap-2 overflow-x-auto pb-2 mb-6 hide-scrollbar">
-            <!-- เปลี่ยน สินค้าทั้งหมด เป็นปุ่มธรรมดา -->
-            <button onclick="filterCategory('all')" class="cat-btn px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition">
-                <i class="fa-solid fa-border-all mr-1"></i> สินค้าทั้งหมด
-            </button>
-            <!-- เปลี่ยน ทีวีมือสอง ให้เป็นปุ่ม Active เริ่มต้น -->
-            <button onclick="filterCategory('TV')" class="cat-btn active px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap bg-brand-600 text-white shadow-sm transition">
-                <i class="fa-solid fa-tv mr-1 text-sky-500"></i> ทีวีมือสอง
-            </button>
-            <button onclick="filterCategory('Mainboard')" class="cat-btn px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition">
-                <i class="fa-solid fa-microchip mr-1 text-purple-500"></i> เมนบอร์ด
-            </button>
-            <button onclick="filterCategory('Powerboard')" class="cat-btn px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition">
-                <i class="fa-solid fa-bolt mr-1 text-amber-500"></i> พาวเวอร์บอร์ด
-            </button>
-            <button onclick="filterCategory('T-Con')" class="cat-btn px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition">
-                <i class="fa-solid fa-network-wired mr-1 text-emerald-500"></i> T-Con / สายแพร
-            </button>
-            <button onclick="filterCategory('Clearance')" class="cat-btn px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition">
-                <i class="fa-solid fa-triangle-exclamation mr-1 text-rose-500"></i> เครื่องเสีย/อะไหล่
-            </button>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-            <!-- Desktop Filters Sidebar -->
-            <aside class="hidden lg:block lg:col-span-1 bg-white p-5 rounded-2xl border border-slate-200/80 h-fit space-y-5 sticky top-20 shadow-sm">
-                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-                    <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
-                        <i class="fa-solid fa-filter text-brand-600"></i> ตัวกรองสินค้า
-                    </h3>
-                    <button onclick="resetFilters()" class="text-xs text-brand-600 hover:underline">ล้างทั้งหมด</button>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-2">ยี่ห้อ (Brand)</label>
-                    <div class="space-y-1.5 text-xs text-slate-600">
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-slate-900"><input type="checkbox" value="Samsung" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600 focus:ring-brand-500"> Samsung</label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-slate-900"><input type="checkbox" value="LG" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600 focus:ring-brand-500"> LG</label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-slate-900"><input type="checkbox" value="Sony" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600 focus:ring-brand-500"> Sony</label>
-                        <label class="flex items-center gap-2 cursor-pointer hover:text-slate-900"><input type="checkbox" value="TCL" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600 focus:ring-brand-500"> TCL</label>
+    <!-- Main Content Area -->
+    <main id="mainAppContent" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 opacity-0 transition-opacity duration-300">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Desktop Filter Sidebar -->
+            <aside class="hidden lg:block lg:col-span-1 space-y-6">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-5">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                        <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-sliders text-brand-600"></i> ตัวกรองค้นหา
+                        </h3>
+                        <button onclick="resetFilters()" class="text-xs text-brand-600 hover:underline">ล้างตัวกรอง</button>
                     </div>
-                </div>
 
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-2">สภาพสินค้า</label>
-                    <div class="space-y-1.5 text-xs text-slate-600">
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="เกรด A" onchange="filterProducts()" class="cond-checkbox rounded text-brand-600"> เกรด A (สวย/เทสแล้ว)</label>
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="แท้ถอด" onchange="filterProducts()" class="cond-checkbox rounded text-brand-600"> แท้ถอดจากเครื่องจอแตก</label>
-                        <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" value="ตีเป็นอะไหล่" onchange="filterProducts()" class="cond-checkbox rounded text-brand-600"> ตีเป็นอะไหล่/ชำรุด</label>
+                    <!-- Filter Brand -->
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-800 mb-2">ยี่ห้อ / แบรนด์</h4>
+                        <div class="space-y-1.5 text-xs max-h-40 overflow-y-auto pr-1">
+                            <label class="flex items-center gap-2"><input type="checkbox" value="Samsung" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600"> Samsung</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" value="LG" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600"> LG</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" value="Sony" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600"> Sony</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" value="TCL" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600"> TCL</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" value="Panasonic" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600"> Panasonic</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" value="Sharp" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600"> Sharp</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" value="Haier" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600"> Haier</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" value="Hisense" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600"> Hisense</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" value="Aconatic" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600"> Aconatic</label>
+                        </div>
                     </div>
-                </div>
 
-                <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-xl text-xs text-emerald-800 space-y-1">
-                    <p class="font-bold flex items-center gap-1.5 text-emerald-900"><i class="fa-solid fa-shield-halved text-emerald-600"></i> การรับประกันสินค้า</p>
-                    <p class="text-[11px] text-emerald-700">- ทีวีมือสอง: ประกัน 30 วัน<br>- อะไหล่: ประกัน 14 วัน</p>
+                    <!-- Filter Condition -->
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-800 mb-2">สภาพสินค้า</h4>
+                        <div class="space-y-1.5 text-xs">
+                            <label class="flex items-center gap-2"><input type="checkbox" value="เกรด A" onchange="filterProducts()" class="cond-checkbox rounded text-brand-600"> เกรด A สภาพสวย</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" value="แท้ถอด" onchange="filterProducts()" class="cond-checkbox rounded text-brand-600"> แท้ถอดตรงรุ่น</label>
+                            <label class="flex items-center gap-2"><input type="checkbox" value="มือสอง" onchange="filterProducts()" class="cond-checkbox rounded text-brand-600"> มือสองพร้อมใช้งาน</label>
+                        </div>
+                    </div>
+
+                    <!-- Quick Price Shortcuts -->
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-800 mb-2">ช่วงราคา</h4>
+                        <div class="grid grid-cols-2 gap-1.5 text-[11px]">
+                            <button onclick="setPriceFilter(0, 500)" class="px-2 py-1 bg-slate-100 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition">ต่ำกว่า 500</button>
+                            <button onclick="setPriceFilter(500, 1000)" class="px-2 py-1 bg-slate-100 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition">500 - 1,000</button>
+                            <button onclick="setPriceFilter(1000, 2500)" class="px-2 py-1 bg-slate-100 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition">1,000 - 2,500</button>
+                            <button onclick="setPriceFilter(2500, 99999)" class="px-2 py-1 bg-slate-100 hover:bg-brand-50 hover:text-brand-600 rounded-lg transition">2,500 ขึ้นไป</button>
+                        </div>
+                    </div>
+
+                    <!-- In Stock Checkbox -->
+                    <div class="pt-2 border-t border-slate-100">
+                        <label class="flex items-center gap-2 text-xs font-medium text-slate-700 cursor-pointer">
+                            <input type="checkbox" id="inStockOnlyCheckbox" onchange="filterProducts()" class="rounded text-brand-600">
+                            แสดงเฉพาะสินค้าที่มีสต๊อก
+                        </label>
+                    </div>
                 </div>
             </aside>
 
-            <section class="lg:col-span-3">
-                <div class="flex items-center justify-between mb-4 bg-white p-3.5 rounded-xl border border-slate-200/80 text-xs">
-                    <span class="text-slate-600">พบสินค้า <strong id="productCount" class="text-brand-600 font-bold">0</strong> รายการ</span>
+            <!-- Main Product Showcase Grid -->
+            <section class="lg:col-span-3 space-y-6">
+                
+                <!-- Category Nav Pills -->
+                <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar pb-1">
+                    <button onclick="filterCategory('TV')" class="cat-btn bg-brand-600 text-white shadow-md px-4 py-2 rounded-xl text-xs font-semibold shrink-0 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-tv"></i> ทีวีมือสอง
+                    </button>
+                    <button onclick="filterCategory('Mainboard')" class="cat-btn bg-white text-slate-700 hover:bg-slate-100 px-4 py-2 rounded-xl text-xs font-semibold shrink-0 transition flex items-center gap-1.5 border border-slate-200">
+                        <i class="fa-solid fa-microchip"></i> เมนบอร์ด
+                    </button>
+                    <button onclick="filterCategory('Powerboard')" class="cat-btn bg-white text-slate-700 hover:bg-slate-100 px-4 py-2 rounded-xl text-xs font-semibold shrink-0 transition flex items-center gap-1.5 border border-slate-200">
+                        <i class="fa-solid fa-plug"></i> พาวเวอร์บอร์ด
+                    </button>
+                    <button onclick="filterCategory('T-Con')" class="cat-btn bg-white text-slate-700 hover:bg-slate-100 px-4 py-2 rounded-xl text-xs font-semibold shrink-0 transition flex items-center gap-1.5 border border-slate-200">
+                        <i class="fa-solid fa-border-all"></i> T-Con / สายแพร
+                    </button>
+                    <button onclick="filterCategory('Clearance')" class="cat-btn bg-white text-slate-700 hover:bg-slate-100 px-4 py-2 rounded-xl text-xs font-semibold shrink-0 transition flex items-center gap-1.5 border border-slate-200">
+                        <i class="fa-solid fa-tags text-rose-500"></i> ล้างสต๊อก
+                    </button>
+                    <button onclick="filterCategory('all')" class="cat-btn bg-white text-slate-700 hover:bg-slate-100 px-4 py-2 rounded-xl text-xs font-semibold shrink-0 transition flex items-center gap-1.5 border border-slate-200">
+                        <i class="fa-solid fa-list"></i> ทั้งหมด
+                    </button>
+                </div>
+
+                <!-- Products Filter Bar -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 bg-white p-3 rounded-2xl border border-slate-200 text-xs">
+                    <div class="text-slate-600">
+                        พบสินค้าทั้งหมด <strong id="productCount" class="text-brand-600 font-bold">0</strong> รายการ
+                    </div>
                     <div class="flex items-center gap-2">
-                        <select id="sortBy" onchange="filterProducts()" class="bg-slate-50 border border-slate-200 rounded-lg py-1 px-2 text-xs focus:outline-none">
-                            <option value="default">รายการแนะนำ</option>
+                        <span class="text-slate-500">เรียงตาม:</span>
+                        <select id="sortBy" onchange="filterProducts()" class="bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-xs font-medium focus:outline-none">
+                            <option value="recommended">สินค้าแนะนำ</option>
                             <option value="price-low">ราคา: ต่ำไปสูง</option>
                             <option value="price-high">ราคา: สูงไปต่ำ</option>
                         </select>
-                        <button onclick="toggleMobileFilterModal()" class="lg:hidden ml-2 bg-slate-100 hover:bg-slate-200 px-3 py-1 rounded-lg font-medium text-slate-700 flex items-center gap-1">
-                            <i class="fa-solid fa-filter text-xs"></i> กรอง
-                        </button>
                     </div>
                 </div>
 
-                <!-- Grid Container -->
-                <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-                    <!-- Dynamic Product Cards Injected Here -->
+                <!-- Products Grid -->
+                <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+                    <!-- Products dynamically rendered here -->
                 </div>
 
-                <!-- Empty State -->
-                <div id="emptyState" class="hidden text-center py-16 bg-white rounded-2xl border border-dashed border-slate-300 my-4">
-                    <i class="fa-solid fa-box-open text-4xl text-slate-300 mb-3 block"></i>
-                    <h3 class="text-base font-bold text-slate-700">ไม่พบสินค้า</h3>
-                    <p class="text-xs text-slate-500 mt-1">ลองเปลี่ยนคำค้นหา หรือล้างตัวกรอง</p>
-                    <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-brand-600 text-white rounded-lg text-xs font-semibold hover:bg-brand-700 transition">กลับไปหน้าทีวีมือสอง</button>
+                <!-- Empty Search Result State -->
+                <div id="emptyState" class="hidden bg-white p-12 rounded-2xl border border-slate-200 text-center space-y-3">
+                    <i class="fa-solid fa-box-open text-4xl text-slate-300"></i>
+                    <h3 class="text-sm font-bold text-slate-700">ไม่พบสินค้าที่คุณกำลังค้นหา</h3>
+                    <p class="text-xs text-slate-500">ลองค้นด้วยคำค้นอื่น หรือทักถามช่างผ่านทาง LINE ได้โดยตรง</p>
+                    <button onclick="resetFilters()" class="inline-flex items-center gap-1.5 bg-brand-600 text-white px-4 py-2 rounded-xl text-xs font-semibold">
+                        <i class="fa-solid fa-rotate-left"></i> รีเซ็ตคำค้นหา
+                    </button>
                 </div>
+
+                <!-- Recently Viewed Products -->
+                <div id="recentlyViewedSection" class="hidden pt-6 border-t border-slate-200">
+                    <h4 class="text-xs font-bold text-slate-800 mb-3 flex items-center gap-1.5">
+                        <i class="fa-solid fa-clock-rotate-left text-brand-600"></i> รายการที่คุณดูล่าสุด
+                    </h4>
+                    <div id="recentlyViewedContainer" class="flex gap-3 overflow-x-auto hide-scrollbar pb-2">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+
             </section>
         </div>
     </main>
 
-    <!-- Product Detail Modal -->
-    <div id="productModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden opacity-0 transition-opacity duration-200">
-        <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
-            <button onclick="closeProductModal()" class="absolute right-3 top-3 bg-slate-100 hover:bg-slate-200 rounded-full w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-800 z-10 transition">
-                <i class="fa-solid fa-xmark text-lg"></i>
+    <!-- Mobile Filter Modal Drawer -->
+    <div id="mobileFilterModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex justify-end">
+        <div class="w-4/5 max-w-xs bg-white h-full p-5 overflow-y-auto flex flex-col justify-between shadow-2xl">
+            <div class="space-y-5">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <h3 class="font-bold text-slate-900 text-sm">ตัวกรองค้นหา</h3>
+                    <button onclick="toggleMobileFilterModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-slate-800 mb-2">ยี่ห้อ / แบรนด์</h4>
+                    <div class="space-y-2 text-xs">
+                        <label class="flex items-center gap-2"><input type="checkbox" value="Samsung" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600"> Samsung</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" value="LG" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600"> LG</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" value="Sony" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600"> Sony</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" value="TCL" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600"> TCL</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" value="Panasonic" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600"> Panasonic</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" value="Sharp" onchange="filterProducts()" class="brand-checkbox rounded text-brand-600"> Sharp</label>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-slate-800 mb-2">สภาพสินค้า</h4>
+                    <div class="space-y-2 text-xs">
+                        <label class="flex items-center gap-2"><input type="checkbox" value="เกรด A" onchange="filterProducts()" class="cond-checkbox rounded text-brand-600"> เกรด A</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" value="แท้ถอด" onchange="filterProducts()" class="cond-checkbox rounded text-brand-600"> แท้ถอด</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" value="มือสอง" onchange="filterProducts()" class="cond-checkbox rounded text-brand-600"> มือสอง</label>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="toggleMobileFilterModal()" class="w-full bg-brand-600 text-white font-semibold py-2.5 rounded-xl text-xs mt-6">ตกลง / ปิด</button>
+        </div>
+    </div>
+
+    <!-- Single Product Detail Modal -->
+    <div id="productModal" class="hidden fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-5 sm:p-6 relative max-h-[90vh] overflow-y-auto shadow-2xl">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center z-20">
+                <i class="fa-solid fa-xmark"></i>
             </button>
-            <div id="modalContent" class="p-4 sm:p-6 space-y-5">
-                <!-- Injected via JavaScript -->
+            <div id="modalContent">
+                <!-- Dynamically Populated -->
             </div>
         </div>
     </div>
 
-    <!-- Shopping Cart Modal -->
-    <div id="cartModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex justify-end hidden">
-        <div class="bg-white w-full max-w-md h-full flex flex-col shadow-2xl">
-            <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-900 text-white">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-cart-shopping text-brand-400"></i>
-                    <h3 class="font-bold text-sm">ตะกร้าสินค้าสั่งซื้อ</h3>
+    <!-- Wishlist Modal Drawer -->
+    <div id="wishlistModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex justify-end">
+        <div class="w-full max-w-sm bg-white h-full p-5 flex flex-col justify-between shadow-2xl">
+            <div>
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-heart text-rose-500"></i> รายการโปรดของคุณ
+                    </h3>
+                    <button onclick="toggleWishlistModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
                 </div>
-                <button onclick="toggleCartModal()" class="text-slate-400 hover:text-white text-lg">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
+                <div id="wishlistItemsList" class="divide-y divide-slate-100 overflow-y-auto max-h-[70vh]">
+                    <!-- Dynamically Populated -->
+                </div>
             </div>
-
-            <div id="cartItemsList" class="flex-1 overflow-y-auto p-4 space-y-3 divide-y divide-slate-100"></div>
-
-            <div class="p-4 border-t border-slate-100 bg-slate-50 space-y-3">
-                <div class="flex justify-between items-center text-sm">
-                    <span class="text-slate-600">ยอดรวม:</span>
-                    <strong id="cartTotalPrice" class="text-lg text-brand-600 font-extrabold">฿0</strong>
-                </div>
-                <div class="bg-amber-50 text-amber-800 text-[11px] p-2.5 rounded-lg border border-amber-200/80">
-                    <i class="fa-solid fa-truck text-amber-600 mr-1"></i> ค่าจัดส่งคิดตามจริง แจ้งทางแชทอีกครั้ง
-                </div>
-                <button onclick="checkoutViaLine()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 shadow-md shadow-emerald-500/20 transition">
-                    <i class="fa-brands fa-line text-lg"></i> ยืนยันการสั่งซื้อผ่าน LINE
-                </button>
-            </div>
+            <button onclick="toggleWishlistModal()" class="w-full bg-slate-100 text-slate-700 font-bold py-2.5 rounded-xl text-xs">ปิด</button>
         </div>
     </div>
 
-    <!-- Mobile Filter Modal -->
-    <div id="mobileFilterModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex justify-end hidden">
-        <div class="bg-white w-4/5 max-w-xs h-full p-5 flex flex-col space-y-4 shadow-xl overflow-y-auto">
-            <div class="flex justify-between items-center border-b pb-3">
-                <h3 class="font-bold text-sm text-slate-800">ตัวกรองสินค้า</h3>
-                <button onclick="toggleMobileFilterModal()" class="text-slate-500 text-lg"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <!-- (Filters cloned here for mobile) -->
+    <!-- Shopping Cart Modal Drawer -->
+    <div id="cartModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex justify-end">
+        <div class="w-full max-w-md bg-white h-full p-5 flex flex-col justify-between shadow-2xl">
             <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-2">ยี่ห้อ (Brand)</label>
-                <div class="space-y-2 text-xs">
-                    <label class="flex items-center gap-2"><input type="checkbox" value="Samsung" onchange="filterProducts()" class="brand-checkbox"> Samsung</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" value="LG" onchange="filterProducts()" class="brand-checkbox"> LG</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" value="Sony" onchange="filterProducts()" class="brand-checkbox"> Sony</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" value="TCL" onchange="filterProducts()" class="brand-checkbox"> TCL</label>
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-cart-shopping text-brand-600"></i> ตะกร้าสินค้า
+                    </h3>
+                    <button onclick="toggleCartModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+                </div>
+                <div id="cartItemsList" class="divide-y divide-slate-100 overflow-y-auto max-h-[55vh]">
+                    <!-- Dynamically Populated -->
                 </div>
             </div>
-            <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-2">สภาพสินค้า</label>
-                <div class="space-y-2 text-xs">
-                    <label class="flex items-center gap-2"><input type="checkbox" value="เกรด A" onchange="filterProducts()" class="cond-checkbox"> เกรด A</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" value="แท้ถอด" onchange="filterProducts()" class="cond-checkbox"> แท้ถอด</label>
-                    <label class="flex items-center gap-2"><input type="checkbox" value="ตีเป็นอะไหล่" onchange="filterProducts()" class="cond-checkbox"> ตีเป็นอะไหล่</label>
+
+            <div class="border-t border-slate-100 pt-3 space-y-2">
+                <div class="flex justify-between text-xs text-slate-600">
+                    <span>ราคารวมสินค้า:</span>
+                    <strong id="cartSubtotalPrice" class="text-slate-900">฿0</strong>
                 </div>
+                <div class="flex justify-between text-xs text-slate-600">
+                    <span>ค่าจัดส่ง (ประเมิน):</span>
+                    <strong id="cartShippingEstimate" class="text-slate-900">฿50</strong>
+                </div>
+                <div class="flex justify-between text-sm font-extrabold text-brand-600 pt-1 border-t border-slate-100">
+                    <span>ยอดรวมสุทธิ:</span>
+                    <strong id="cartTotalPrice">฿0</strong>
+                </div>
+                <button onclick="checkoutViaLine()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-line text-lg"></i> สั่งซื้อผ่าน LINE
+                </button>
             </div>
-            <button onclick="toggleMobileFilterModal()" class="w-full bg-brand-600 text-white font-medium py-2 rounded-xl text-xs mt-auto">ตกลง</button>
         </div>
     </div>
 
@@ -337,66 +439,71 @@
             <i class="fa-solid fa-house text-base"></i><span>หน้าแรก</span>
         </button>
         <button onclick="filterCategory('Mainboard')" class="flex flex-col items-center gap-0.5">
-            <i class="fa-solid fa-microchip text-base"></i><span>หาพาร์ท</span>
+            <i class="fa-solid fa-microchip text-base"></i><span>ค้นหาพาร์ท</span>
+        </button>
+        <button onclick="toggleWishlistModal()" class="flex flex-col items-center gap-0.5 relative">
+            <i class="fa-solid fa-heart text-base"></i><span>โปรด</span>
+            <span id="mobileWishlistBadge" class="absolute -top-1 right-2 bg-rose-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
         </button>
         <button onclick="toggleCartModal()" class="flex flex-col items-center gap-0.5 relative">
             <i class="fa-solid fa-cart-shopping text-base"></i><span>ตะกร้า</span>
-            <span id="mobileCartBadge" class="absolute -top-1 right-1 bg-rose-500 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+            <span id="mobileCartBadge" class="absolute -top-1 right-2 bg-brand-600 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
         </button>
         <a href="javascript:openLineChat()" class="flex flex-col items-center gap-0.5 text-emerald-600 font-semibold">
             <i class="fa-brands fa-line text-lg"></i><span>แชทช่าง</span>
         </a>
     </div>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-xs px-4 py-2.5 rounded-full shadow-2xl z-50 flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300">
-        <i class="fa-solid fa-circle-check text-emerald-400" id="toastIcon"></i>
+    <!-- Dynamic Toast Notification -->
+    <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-slate-900/90 backdrop-blur text-white text-xs px-5 py-3 rounded-full shadow-2xl z-50 flex items-center gap-2.5 opacity-0 pointer-events-none transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-base" id="toastIcon"></i>
         <span id="toastMessage">แจ้งเตือน</span>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 text-xs mt-12 border-t border-slate-800">
+    <footer class="bg-slate-950 text-slate-400 text-xs mt-12 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="space-y-3">
                 <div class="flex items-center gap-2 text-white">
-                    <i class="fa-solid fa-tv text-brand-400 text-lg"></i><span class="font-bold text-base"> Demon-Electronics </span>
+                    <i class="fa-solid fa-tv text-brand-400 text-lg"></i><span class="font-extrabold text-base">Demon & Electronics</span>
                 </div>
                 <p class="text-slate-400 text-[11px] leading-relaxed">
-                    ศูนย์จำหน่ายทีวีมือสองสภาพดี และบริการถอดอะไหล่ทีวีแท้ 100% มั่นใจด้วยการเทสบอร์ดทุกชิ้นก่อนส่งมอบ
+                    ศูนย์จำหน่ายทีวีมือสองสภาพดี และบริการอะไหล่ทีวีแท้ถอด 100% มั่นใจด้วยการเทสบอร์ดทุกชิ้นก่อนส่งมอบ พร้อมทีมช่างให้คำปรึกษา
                 </p>
             </div>
             <div>
                 <h4 class="font-bold text-white mb-3 text-sm">หมวดหมู่ยอดนิยม</h4>
                 <ul class="space-y-2 text-[11px]">
-                    <li><a href="#" onclick="filterCategory('Mainboard')" class="hover:text-white transition">เมนบอร์ด</a></li>
-                    <li><a href="#" onclick="filterCategory('Powerboard')" class="hover:text-white transition">พาวเวอร์บอร์ด</a></li>
-                    <li><a href="#" onclick="filterCategory('T-Con')" class="hover:text-white transition">บอร์ด T-Con / สายแพร</a></li>
+                    <li><a href="#" onclick="filterCategory('TV')" class="hover:text-white transition">• ทีวีมือสองสภาพสวย</a></li>
+                    <li><a href="#" onclick="filterCategory('Mainboard')" class="hover:text-white transition">• เมนบอร์ดทีวี</a></li>
+                    <li><a href="#" onclick="filterCategory('Powerboard')" class="hover:text-white transition">• พาวเวอร์บอร์ด (Power Supply)</a></li>
+                    <li><a href="#" onclick="filterCategory('T-Con')" class="hover:text-white transition">• บอร์ด T-Con / สายแพร</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold text-white mb-3 text-sm">เงื่อนไขการรับประกัน</h4>
+                <h4 class="font-bold text-white mb-3 text-sm">การรับประกัน & บริการ</h4>
                 <ul class="space-y-2 text-[11px]">
-                    <li>• อะไหล่บอร์ดประกัน 14 วัน</li>
-                    <li>• ทีวีมือสองประกัน 30 วัน</li>
-                    <li>• ตรวจเช็ครหัสพาร์ทก่อนสั่งซื้อทุกครั้ง</li>
+                    <li>• อะไหล่บอร์ดรับประกัน 14 วัน</li>
+                    <li>• ทีวีมือสองรับประกัน 30 วัน</li>
+                    <li>• ห่อกันกระแทกอย่างหนาพิเศษส่งทั่วไทย</li>
+                    <li>• ตรวจเช็ครหัสพาร์ทก่อนส่งซื้อฟรี</li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold text-white mb-3 text-sm">ติดต่อร้านค้า</h4>
-                <p class="text-[11px] mb-2"><i class="fa-solid fa-phone text-amber-400 mr-1.5"></i> 065-568-6234 (ช่าง)</p>
+                <h4 class="font-bold text-white mb-3 text-sm">ติดต่อสอบถามช่าง</h4>
+                <p class="text-[11px] mb-2"><i class="fa-solid fa-phone text-amber-400 mr-2"></i> 065-568-6234 (ช่าง)</p>
                 <p class="text-[11px] mb-2 cursor-pointer hover:text-emerald-400 transition" onclick="openLineChat()">
-                    <i class="fa-brands fa-line text-emerald-400 mr-1.5"></i> ทักแชท LINE ร้าน
+                    <i class="fa-brands fa-line text-emerald-400 mr-2"></i> ทักแชท LINE: @p-mon_alone
                 </p>
             </div>
         </div>
-        <div class="border-t border-slate-800 text-center py-4 text-[10px] text-slate-500">© 2026 Demon TV & Parts Center. All Rights Reserved.</div>
+        <div class="border-t border-slate-900 text-center py-4 text-[10px] text-slate-500">© 2026 Demon TV & Parts Center. All Rights Reserved.</div>
     </footer>
 
     <script>
         // =========================================================================
-        // การตั้งค่าระบบ (Configuration)
+        // Configuration & Global State
         // =========================================================================
-        
         const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbywxM1xc28G7ZeYbtHa_l2X3AIKz0MXe_VAtZxcLGJeCpOEYDHdNaEh-LV8P4gEaBY/exec';
         const LINE_CHAT_URL = 'https://line.me/ti/p/~p-mon_alone'; 
 
@@ -405,12 +512,17 @@
         }
 
         let productsData = [];
-        // เปลี่ยนค่าเริ่มต้นเป็น 'TV' เพื่อให้หน้าแรกโชว์ทีวีมือสอง
         let currentCategory = 'TV'; 
         let searchQuery = '';
         let selectedBrands = [];
         let selectedConditions = [];
-        let cart = [];
+        let minPriceFilter = 0;
+        let maxPriceFilter = 999999;
+        
+        // Persistent Stores
+        let cart = JSON.parse(localStorage.getItem('demon_cart') || '[]');
+        let wishlist = JSON.parse(localStorage.getItem('demon_wishlist') || '[]');
+        let recentlyViewedIds = JSON.parse(localStorage.getItem('demon_recent') || '[]');
 
         function getDirectImageUrl(url) {
             if (!url) return 'https://placehold.co/600x400/eeeeee/999999?text=No+Image';
@@ -423,29 +535,41 @@
             return cleanUrl;
         }
 
-        window.addEventListener('DOMContentLoaded', () => fetchDataFromAppsScript());
+        window.addEventListener('DOMContentLoaded', () => {
+            fetchDataFromAppsScript();
+            updateCartUI();
+            updateWishlistUI();
+        });
 
         function fetchDataFromAppsScript() {
-            if (!GOOGLE_APPS_SCRIPT_URL || GOOGLE_APPS_SCRIPT_URL === 'ใส่_URL_ของ_APPS_SCRIPT_ตรงนี้') {
-                document.getElementById('apiLoadingState').innerHTML = '<h3 class="text-sm font-bold text-rose-500 mt-4">กรุณาตั้งค่า GOOGLE_APPS_SCRIPT_URL ในโค้ดก่อนใช้งาน</h3>';
-                document.getElementById('apiLoadingState').classList.remove('hidden');
+            const loadingStateEl = document.getElementById('apiLoadingState');
+            const mainContentEl = document.getElementById('mainAppContent');
+
+            if (!GOOGLE_APPS_SCRIPT_URL || GOOGLE_APPS_SCRIPT_URL.includes('ใส่_URL')) {
+                if (loadingStateEl) {
+                    loadingStateEl.innerHTML = '<h3 class="text-sm font-bold text-rose-500 mt-4">กรุณาตั้งค่า GOOGLE_APPS_SCRIPT_URL ในโค้ดก่อนใช้งาน</h3>';
+                    loadingStateEl.classList.remove('hidden');
+                }
                 return;
             }
 
-            document.getElementById('apiLoadingState').classList.remove('hidden');
+            if (loadingStateEl) loadingStateEl.classList.remove('hidden');
             
             fetch(GOOGLE_APPS_SCRIPT_URL)
                 .then(response => response.json())
                 .then(data => {
                     const actualData = data.data ? data.data : data;
                     productsData = processRawData(actualData);
-                    document.getElementById('apiLoadingState').classList.add('hidden');
-                    document.getElementById('mainAppContent').classList.remove('opacity-0');
-                    filterProducts(); // จะ filter ตาม currentCategory = 'TV' เป็นค่าเริ่มต้น
+                    if (loadingStateEl) loadingStateEl.classList.add('hidden');
+                    if (mainContentEl) mainContentEl.classList.remove('opacity-0');
+                    filterProducts(); 
+                    renderRecentlyViewed();
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
-                    document.getElementById('apiLoadingState').innerHTML = '<h3 class="text-sm font-bold text-rose-500">เกิดข้อผิดพลาดในการโหลดข้อมูล</h3>';
+                    if (loadingStateEl) {
+                        loadingStateEl.innerHTML = '<h3 class="text-sm font-bold text-rose-500">เกิดข้อผิดพลาดในการโหลดข้อมูลจากเซิร์ฟเวอร์</h3>';
+                    }
                 });
         }
 
@@ -459,31 +583,41 @@
                 if (row.techSpecs) {
                     row.techSpecs.split('|').forEach(spec => {
                         let parts = spec.split(':');
-                        if (parts.length === 2) techSpecsObj[parts[0].trim()] = parts[1].trim();
+                        if (parts.length >= 2) techSpecsObj[parts[0].trim()] = parts.slice(1).join(':').trim();
                     });
                 }
                 return {
-                    id: row.id, title: row.title, type: row.type, brand: row.brand,
-                    partNumber: row.partNumber, price: parseFloat(row.price) || 0,
-                    originalPrice: parseFloat(row.originalPrice) || 0, condition: row.condition,
+                    id: String(row.id), title: row.title, type: row.type, brand: row.brand,
+                    partNumber: row.partNumber || '-', price: parseFloat(row.price) || 0,
+                    originalPrice: parseFloat(row.originalPrice) || 0, condition: row.condition || '',
                     badge: row.badge, image: row.image, 
                     compatibleModels: row.compatibleModels ? row.compatibleModels.split(',').map(m => m.trim()) : [],
-                    details: row.details, warranty: row.warranty, techSpecs: techSpecsObj,
+                    details: row.details || '', warranty: row.warranty || '', techSpecs: techSpecsObj,
                     status: row.status || row.Status || ''
                 };
             });
         }
 
+        function setPriceFilter(min, max) {
+            minPriceFilter = min;
+            maxPriceFilter = max;
+            filterProducts();
+            showToast(`กรองราคา ฿${min} - ${max === 99999 ? 'ขึ้นไป' : '฿' + max}`);
+        }
+
         function filterProducts() {
             selectedBrands = Array.from(document.querySelectorAll('.brand-checkbox:checked')).map(cb => cb.value);
             selectedConditions = Array.from(document.querySelectorAll('.cond-checkbox:checked')).map(cb => cb.value);
-            const sortBy = document.getElementById('sortBy').value;
+            const inStockOnly = document.getElementById('inStockOnlyCheckbox')?.checked || false;
+            const sortBy = document.getElementById('sortBy')?.value || 'recommended';
 
             let filtered = productsData.filter(p => {
+                // Category Filter
                 if (currentCategory !== 'all') {
                     if (currentCategory === 'Clearance' && p.type !== 'Clearance') return false;
                     if (currentCategory !== 'Clearance' && p.type !== currentCategory) return false;
                 }
+                // Search Query Filter
                 if (searchQuery.trim() !== '') {
                     const q = searchQuery.toLowerCase();
                     const matchTitle = p.title.toLowerCase().includes(q);
@@ -491,8 +625,18 @@
                     const matchModel = p.compatibleModels.some(m => m.toLowerCase().includes(q));
                     if (!matchTitle && !matchPart && !matchModel) return false;
                 }
+                // Brand Filter
                 if (selectedBrands.length > 0 && !selectedBrands.includes(p.brand)) return false;
+                // Condition Filter
                 if (selectedConditions.length > 0 && !selectedConditions.some(c => p.condition.includes(c))) return false;
+                // Price Filter
+                if (p.price < minPriceFilter || p.price > maxPriceFilter) return false;
+                // In Stock Only Filter
+                if (inStockOnly) {
+                    const isSoldOut = p.status && (p.status.includes('ขายแล้ว') || p.status.includes('หมด') || p.status.toLowerCase().includes('sold'));
+                    if (isSoldOut) return false;
+                }
+
                 return true;
             });
 
@@ -507,31 +651,37 @@
             const countEl = document.getElementById('productCount');
             const emptyEl = document.getElementById('emptyState');
             
-            countEl.textContent = products.length;
+            if (countEl) countEl.textContent = products.length;
+
+            if (!grid) return;
 
             if (products.length === 0) {
                 grid.innerHTML = '';
-                emptyEl.classList.remove('hidden');
+                if (emptyEl) emptyEl.classList.remove('hidden');
                 return;
             }
-            emptyEl.classList.add('hidden');
+            if (emptyEl) emptyEl.classList.add('hidden');
 
             grid.innerHTML = products.map(p => {
                 const imagesArr = p.image ? p.image.split(',') : [];
                 const firstImage = imagesArr.length > 0 ? getDirectImageUrl(imagesArr[0]) : '';
-                
                 const isSoldOut = p.status && (p.status.includes('ขายแล้ว') || p.status.includes('หมด') || p.status.toLowerCase().includes('sold'));
+                const isWishlisted = wishlist.includes(p.id);
 
                 return `
-                <div class="bg-white rounded-2xl border border-slate-200/90 overflow-hidden hover:shadow-lg transition-all duration-200 flex flex-col group ${isSoldOut ? 'opacity-80' : ''}">
-                    
+                <div class="bg-white rounded-2xl border border-slate-200/90 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col group relative ${isSoldOut ? 'opacity-85' : ''}">
+                    <button onclick="toggleWishlist('${p.id}')" class="absolute top-2.5 right-2.5 z-20 w-8 h-8 rounded-full bg-white/80 backdrop-blur hover:bg-white text-slate-400 hover:text-rose-500 flex items-center justify-center shadow-md transition">
+                        <i class="fa-solid fa-heart ${isWishlisted ? 'text-rose-500' : ''}"></i>
+                    </button>
+
                     <div class="relative aspect-video bg-slate-100 overflow-hidden cursor-pointer" onclick="openProductModal('${p.id}')">
-                        <img src="${firstImage}" alt="${p.title}" class="w-full h-full object-cover ${isSoldOut ? 'grayscale-[50%]' : 'group-hover:scale-105 transition-transform duration-300'}" onerror="this.src='https://placehold.co/600x400/eeeeee/999999?text=No+Image'">
-                        <span class="absolute top-2 left-2 bg-slate-900/80 text-white text-[10px] font-semibold px-2 py-0.5 rounded-md backdrop-blur">${p.brand}</span>
+                        <img src="${firstImage}" alt="${p.title}" class="w-full h-full object-cover ${isSoldOut ? 'grayscale-[40%]' : 'group-hover:scale-105 transition-transform duration-500'}" onerror="this.src='https://placehold.co/600x400/eeeeee/999999?text=No+Image'">
+                        
+                        <span class="absolute top-2.5 left-2.5 bg-slate-900/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-md backdrop-blur">${p.brand}</span>
                         
                         ${isSoldOut ? `
                         <div class="absolute inset-0 bg-black/40 flex items-center justify-center backdrop-blur-[1px] z-10">
-                            <span class="bg-rose-600 text-white font-extrabold px-4 py-2 rounded-xl border-[3px] border-white/30 shadow-2xl transform -rotate-12 text-base sm:text-lg tracking-widest">
+                            <span class="bg-rose-600 text-white font-black px-4 py-1.5 rounded-xl border-[2px] border-white/40 shadow-xl transform -rotate-6 text-sm sm:text-base tracking-wider">
                                 ขายแล้ว
                             </span>
                         </div>
@@ -540,23 +690,27 @@
 
                     <div class="p-3 sm:p-4 flex-1 flex flex-col justify-between space-y-2">
                         <div>
-                            <div class="text-[10px] text-brand-600 font-bold tracking-wide uppercase mb-1 flex items-center gap-1">
-                                <i class="fa-solid fa-barcode"></i> พาร์ท: ${p.partNumber}
+                            <div class="flex items-center justify-between gap-1 mb-1.5">
+                                <span class="text-[10px] text-brand-600 font-bold tracking-wide uppercase flex items-center gap-1">
+                                    <i class="fa-solid fa-barcode"></i> ${p.partNumber}
+                                </span>
+                                ${p.warranty ? `<span class="text-[9px] bg-emerald-50 text-emerald-700 font-semibold px-1.5 py-0.5 rounded border border-emerald-200/60"><i class="fa-solid fa-shield-halved text-[8px] mr-0.5"></i> ${p.warranty}</span>` : ''}
                             </div>
                             <h3 onclick="openProductModal('${p.id}')" class="font-bold text-xs sm:text-sm text-slate-800 hover:text-brand-600 line-clamp-2 cursor-pointer leading-snug">${p.title}</h3>
                         </div>
+
                         <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
                             <div>
-                                <div class="text-slate-400 text-[10px] line-through">฿${p.originalPrice.toLocaleString()}</div>
+                                ${p.originalPrice ? `<div class="text-slate-400 text-[10px] line-through">฿${p.originalPrice.toLocaleString()}</div>` : ''}
                                 <div class="text-brand-600 font-extrabold text-sm sm:text-base">฿${p.price.toLocaleString()}</div>
                             </div>
                             
                             ${isSoldOut ? `
-                                <button disabled class="bg-slate-100 text-slate-400 p-2 sm:px-3 sm:py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1 cursor-not-allowed">
-                                    <i class="fa-solid fa-ban"></i> <span class="hidden sm:inline">หมด</span>
+                                <button disabled class="bg-slate-100 text-slate-400 p-2 sm:px-3 sm:py-1.5 rounded-xl text-xs font-semibold cursor-not-allowed">
+                                    หมด
                                 </button>
                             ` : `
-                                <button onclick="addToCart('${p.id}')" class="bg-brand-50 hover:bg-brand-600 hover:text-white text-brand-600 p-2 sm:px-3 sm:py-1.5 rounded-xl text-xs font-semibold transition flex items-center gap-1">
+                                <button onclick="addToCart('${p.id}')" class="bg-brand-50 hover:bg-brand-600 hover:text-white text-brand-600 p-2 sm:px-3 sm:py-1.5 rounded-xl text-xs font-semibold transition flex items-center gap-1 shadow-sm">
                                     <i class="fa-solid fa-cart-plus"></i> <span class="hidden sm:inline">ใส่ตะกร้า</span>
                                 </button>
                             `}
@@ -566,37 +720,42 @@
             `}).join('');
         }
 
-        function changeModalMainImage(url) { document.getElementById('modalMainImg').src = url; }
+        function changeModalMainImage(url) { 
+            const mainImg = document.getElementById('modalMainImg');
+            if (mainImg) mainImg.src = url; 
+        }
 
         function openProductModal(id) {
             const p = productsData.find(item => item.id === id);
             if (!p) return;
 
+            trackRecentlyViewed(id);
+
             const imagesArr = p.image ? p.image.split(',') : [];
             const directImageUrls = imagesArr.map(img => getDirectImageUrl(img));
             const mainImg = directImageUrls.length > 0 ? directImageUrls[0] : 'https://placehold.co/600x400/eeeeee/999999?text=No+Image';
-            
             const isSoldOut = p.status && (p.status.includes('ขายแล้ว') || p.status.includes('หมด') || p.status.toLowerCase().includes('sold'));
 
             let galleryHtml = '';
             if (directImageUrls.length > 1) {
                 galleryHtml = `<div class="flex gap-2 mt-3 overflow-x-auto hide-scrollbar pb-1">`;
                 directImageUrls.forEach(url => {
-                    galleryHtml += `<img src="${url}" onclick="changeModalMainImage('${url}')" class="w-16 h-16 object-cover rounded-lg border-2 border-transparent hover:border-brand-500 cursor-pointer shadow-sm transition">`;
+                    galleryHtml += `<img src="${url}" onclick="changeModalMainImage('${url}')" class="w-16 h-16 object-cover rounded-xl border-2 border-transparent hover:border-brand-500 cursor-pointer shadow-sm transition">`;
                 });
                 galleryHtml += `</div>`;
             }
 
             const content = document.getElementById('modalContent');
+            if (!content) return;
+
             content.innerHTML = `
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <div class="relative aspect-video bg-slate-100 rounded-xl overflow-hidden border border-slate-200 shadow-inner">
-                            <img id="modalMainImg" src="${mainImg}" class="w-full h-full object-contain ${isSoldOut ? 'grayscale-[50%]' : ''}">
-                            
+                        <div class="relative aspect-video bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 shadow-inner">
+                            <img id="modalMainImg" src="${mainImg}" class="w-full h-full object-contain ${isSoldOut ? 'grayscale-[40%]' : ''}">
                             ${isSoldOut ? `
                             <div class="absolute inset-0 bg-black/40 flex items-center justify-center backdrop-blur-[1px] z-10">
-                                <span class="bg-rose-600 text-white font-extrabold px-6 py-3 rounded-2xl border-[3px] border-white/30 shadow-2xl transform -rotate-12 text-2xl tracking-widest">
+                                <span class="bg-rose-600 text-white font-black px-6 py-2.5 rounded-2xl border-[3px] border-white/30 shadow-2xl transform -rotate-12 text-2xl tracking-widest">
                                     ขายแล้ว
                                 </span>
                             </div>
@@ -604,44 +763,68 @@
                         </div>
                         ${galleryHtml}
                     </div>
-                    <div class="space-y-3">
-                        <div class="flex items-center gap-2">
-                            <span class="bg-brand-100 text-brand-700 text-[10px] font-bold px-2 py-0.5 rounded">${p.brand}</span>
-                            <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded">พาร์ท: ${p.partNumber}</span>
+
+                    <div class="space-y-3.5">
+                        <div class="flex flex-wrap items-center gap-1.5">
+                            <span class="bg-brand-100 text-brand-800 text-[10px] font-bold px-2 py-0.5 rounded-md">${p.brand}</span>
+                            <span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2 py-0.5 rounded-md">พาร์ท: ${p.partNumber}</span>
+                            ${p.condition ? `<span class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-md border border-slate-200">${p.condition}</span>` : ''}
                         </div>
+
                         <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">${p.title}</h2>
+
                         <div class="flex items-baseline gap-2">
-                            <span class="text-2xl font-extrabold text-brand-600">฿${p.price.toLocaleString()}</span>
-                            <span class="text-xs text-slate-400 line-through">฿${p.originalPrice.toLocaleString()}</span>
+                            <span class="text-2xl font-black text-brand-600">฿${p.price.toLocaleString()}</span>
+                            ${p.originalPrice ? `<span class="text-xs text-slate-400 line-through">฿${p.originalPrice.toLocaleString()}</span>` : ''}
                         </div>
-                        <p class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">${p.details}</p>
+
+                        <p class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-3 rounded-2xl border border-slate-100">${p.details || 'ไม่มีรายละเอียดเพิ่มเติม'}</p>
+                        
+                        ${p.warranty ? `
+                        <div class="bg-emerald-50 border border-emerald-200/80 rounded-2xl p-3 text-xs text-emerald-900 flex items-center gap-2.5">
+                            <i class="fa-solid fa-shield-halved text-emerald-600 text-lg"></i>
+                            <div>
+                                <span class="font-bold block">รับประกันสินค้า: ${p.warranty}</span>
+                                <span class="text-[10px] text-emerald-700">ผ่านการทดสอบสภาพพร้อมใช้งานก่อนจัดส่ง 100%</span>
+                            </div>
+                        </div>` : ''}
+
                         <div>
-                            <span class="text-xs font-bold text-slate-700 block mb-1">รุ่นทีวีที่รองรับ:</span>
+                            <span class="text-xs font-bold text-slate-800 block mb-1">รุ่นทีวีที่รองรับ:</span>
                             <div class="flex flex-wrap gap-1">
-                                ${p.compatibleModels.map(m => `<span class="bg-slate-100 text-slate-700 text-[10px] px-2 py-0.5 rounded border border-slate-200">${m}</span>`).join('')}
+                                ${p.compatibleModels.length > 0 ? p.compatibleModels.map(m => `<span class="bg-slate-100 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded-md border border-slate-200">${m}</span>`).join('') : '<span class="text-slate-400 text-xs">-</span>'}
                             </div>
                         </div>
-                        <div class="pt-3 flex items-center gap-2">
+
+                        <div class="pt-3 flex flex-col sm:flex-row items-center gap-2">
                             ${isSoldOut ? `
-                                <button disabled class="flex-1 bg-slate-200 text-slate-500 font-bold py-2.5 rounded-xl text-xs cursor-not-allowed border border-slate-300">
-                                    <i class="fa-solid fa-ban"></i> สินค้านี้ขายแล้ว
+                                <button disabled class="w-full bg-slate-100 text-slate-400 font-bold py-3 rounded-xl text-xs cursor-not-allowed border border-slate-200">
+                                    <i class="fa-solid fa-ban mr-1"></i> สินค้านี้ขายแล้ว
                                 </button>
                             ` : `
-                                <button onclick="addToCart('${p.id}'); closeProductModal();" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition shadow-md">
+                                <button onclick="addToCart('${p.id}'); closeProductModal();" class="w-full sm:flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5">
                                     <i class="fa-solid fa-cart-shopping"></i> เพิ่มลงตะกร้า
                                 </button>
                             `}
+                            
+                            <button onclick="directOrderLine('${p.id}')" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5">
+                                <i class="fa-brands fa-line text-base"></i>
+                                <span>สอบถาม/สั่งด่วนทาง LINE</span>
+                            </button>
                         </div>
                     </div>
                 </div>
             `;
             const modal = document.getElementById('productModal');
-            modal.classList.remove('hidden');
-            setTimeout(() => modal.classList.remove('opacity-0'), 10);
+            if (modal) {
+                modal.classList.remove('hidden');
+                setTimeout(() => modal.classList.remove('opacity-0'), 10);
+            }
         }
 
         function closeProductModal() {
             const modal = document.getElementById('productModal');
+            if (!modal) return;
             modal.classList.add('opacity-0');
             setTimeout(() => modal.classList.add('hidden'), 200);
         }
@@ -649,30 +832,41 @@
         function filterCategory(cat) { 
             currentCategory = cat; 
             document.querySelectorAll('.cat-btn').forEach(btn => {
-                btn.classList.remove('bg-brand-600', 'text-white');
+                btn.classList.remove('bg-brand-600', 'text-white', 'shadow-md');
                 btn.classList.add('bg-white', 'text-slate-700');
             });
-            event.currentTarget.classList.remove('bg-white', 'text-slate-700');
-            event.currentTarget.classList.add('bg-brand-600', 'text-white');
+            if (window.event && window.event.currentTarget) {
+                window.event.currentTarget.classList.remove('bg-white', 'text-slate-700');
+                window.event.currentTarget.classList.add('bg-brand-600', 'text-white', 'shadow-md');
+            }
             filterProducts(); 
         }
 
         function handleSearch(e) { if (e.key === 'Enter') { searchQuery = e.target.value; filterProducts(); } }
-        function applySearch(inputId) { searchQuery = document.getElementById(inputId).value; filterProducts(); }
+        function applySearch(inputId) { 
+            const input = document.getElementById(inputId);
+            if (input) searchQuery = input.value; 
+            filterProducts(); 
+        }
         
         function resetFilters() { 
-            // เปลี่ยนให้กลับไปหน้า 'TV' แทนที่จะเป็น 'all'
             currentCategory = 'TV'; 
             searchQuery = ''; 
-            document.getElementById('desktopSearchInput').value = ''; 
-            document.getElementById('mobileSearchInput').value = '';
+            minPriceFilter = 0;
+            maxPriceFilter = 999999;
+            
+            const dtInput = document.getElementById('desktopSearchInput');
+            const mbInput = document.getElementById('mobileSearchInput');
+            const stockCb = document.getElementById('inStockOnlyCheckbox');
+
+            if (dtInput) dtInput.value = ''; 
+            if (mbInput) mbInput.value = '';
+            if (stockCb) stockCb.checked = false;
             document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false); 
             
-            // อัปเดตสไตล์ของปุ่มแท็บ
             document.querySelectorAll('.cat-btn').forEach(btn => {
                 btn.classList.remove('bg-brand-600', 'text-white');
                 btn.classList.add('bg-white', 'text-slate-700');
-                // หากปุ่มเป็นปุ่ม "ทีวีมือสอง" ให้ใส่คลาส active กลับไป
                 if (btn.getAttribute('onclick') === "filterCategory('TV')") {
                     btn.classList.remove('bg-white', 'text-slate-700');
                     btn.classList.add('bg-brand-600', 'text-white');
@@ -680,14 +874,17 @@
             });
 
             filterProducts();
+            showToast('ล้างตัวกรองทั้งหมดเรียบร้อยแล้ว');
         }
 
         function runPartFinder() {
-            const brand = document.getElementById('checkerBrand').value;
-            const type = document.getElementById('checkerType').value;
+            const brandEl = document.getElementById('checkerBrand');
+            const typeEl = document.getElementById('checkerType');
+            const brand = brandEl ? brandEl.value : '';
+            const type = typeEl ? typeEl.value : '';
+
             if (brand) document.querySelectorAll('.brand-checkbox').forEach(cb => cb.checked = (cb.value === brand));
             if (type) {
-                 // อัปเดต UI Tab ให้ตรงกับประเภทที่ค้นหา
                  document.querySelectorAll('.cat-btn').forEach(btn => {
                     if (btn.getAttribute('onclick') === `filterCategory('${type}')`) {
                         btn.click();
@@ -696,13 +893,104 @@
             } else filterProducts();
         }
 
+        function toggleWishlist(id) {
+            if (wishlist.includes(id)) {
+                wishlist = wishlist.filter(item => item !== id);
+                showToast('นำออกจากรายการโปรดแล้ว');
+            } else {
+                wishlist.push(id);
+                showToast('บันทึกเข้าในรายการโปรดแล้ว');
+            }
+            localStorage.setItem('demon_wishlist', JSON.stringify(wishlist));
+            updateWishlistUI();
+            filterProducts();
+        }
+
+        function updateWishlistUI() {
+            const badge = document.getElementById('wishlistBadge');
+            const mobileBadge = document.getElementById('mobileWishlistBadge');
+            const list = document.getElementById('wishlistItemsList');
+
+            if (badge && mobileBadge) {
+                if (wishlist.length > 0) {
+                    badge.textContent = wishlist.length; badge.classList.remove('hidden');
+                    mobileBadge.textContent = wishlist.length; mobileBadge.classList.remove('hidden');
+                } else {
+                    badge.classList.add('hidden'); mobileBadge.classList.add('hidden');
+                }
+            }
+
+            if (!list) return;
+
+            if (wishlist.length === 0) {
+                list.innerHTML = `<div class="text-center py-12 text-slate-400"><i class="fa-solid fa-heart-crack text-3xl mb-2 block"></i><p class="text-xs">ยังไม่มีรายการโปรด</p></div>`;
+                return;
+            }
+
+            const items = productsData.filter(p => wishlist.includes(p.id));
+            list.innerHTML = items.map(item => {
+                const img = item.image ? getDirectImageUrl(item.image.split(',')[0]) : '';
+                return `
+                <div class="flex items-center gap-3 pt-3">
+                    <img src="${img}" class="w-12 h-12 rounded-xl object-cover border border-slate-200">
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-xs font-bold text-slate-800 truncate">${item.title}</h4>
+                        <div class="text-[10px] text-slate-500">พาร์ท: ${item.partNumber}</div>
+                        <div class="text-xs font-extrabold text-brand-600 mt-0.5">฿${item.price.toLocaleString()}</div>
+                    </div>
+                    <button onclick="toggleWishlist('${item.id}')" class="text-slate-400 hover:text-rose-500 p-2">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>`;
+            }).join('');
+        }
+
+        function toggleWishlistModal() {
+            const modal = document.getElementById('wishlistModal');
+            if (modal) modal.classList.toggle('hidden');
+        }
+
+        function trackRecentlyViewed(id) {
+            recentlyViewedIds = recentlyViewedIds.filter(i => i !== id);
+            recentlyViewedIds.unshift(id);
+            if (recentlyViewedIds.length > 6) recentlyViewedIds.pop();
+            localStorage.setItem('demon_recent', JSON.stringify(recentlyViewedIds));
+            renderRecentlyViewed();
+        }
+
+        function renderRecentlyViewed() {
+            const section = document.getElementById('recentlyViewedSection');
+            const container = document.getElementById('recentlyViewedContainer');
+            
+            if (!section || !container) return;
+
+            if (recentlyViewedIds.length === 0 || productsData.length === 0) {
+                section.classList.add('hidden');
+                return;
+            }
+
+            const items = recentlyViewedIds.map(id => productsData.find(p => p.id === id)).filter(Boolean);
+            if (items.length === 0) return;
+
+            section.classList.remove('hidden');
+            container.innerHTML = items.map(item => {
+                const img = item.image ? getDirectImageUrl(item.image.split(',')[0]) : '';
+                return `
+                <div onclick="openProductModal('${item.id}')" class="w-36 shrink-0 bg-slate-50 p-2 rounded-xl border border-slate-200 cursor-pointer hover:border-brand-500 transition">
+                    <img src="${img}" class="w-full h-20 object-cover rounded-lg mb-1.5">
+                    <h5 class="text-[11px] font-bold text-slate-800 truncate">${item.title}</h5>
+                    <div class="text-xs font-extrabold text-brand-600">฿${item.price.toLocaleString()}</div>
+                </div>`;
+            }).join('');
+        }
+
         function addToCart(productId) {
             const product = productsData.find(p => p.id === productId);
             if (!product) return;
             const existing = cart.find(item => item.id === productId);
             if (existing) existing.qty += 1; else cart.push({ ...product, qty: 1 });
-            updateCartUI();
-            showToast(`เพิ่มสินค้าลงตะกร้าแล้ว`, 'success');
+            saveCart();
+            showToast(`เพิ่มสินค้าลงตะกร้าแล้ว`);
         }
 
         function changeQty(id, delta) {
@@ -710,6 +998,11 @@
             if (!item) return;
             item.qty += delta;
             if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+            saveCart();
+        }
+
+        function saveCart() {
+            localStorage.setItem('demon_cart', JSON.stringify(cart));
             updateCartUI();
         }
 
@@ -717,18 +1010,28 @@
             const badge = document.getElementById('cartBadge');
             const mobileBadge = document.getElementById('mobileCartBadge');
             const list = document.getElementById('cartItemsList');
+            const subtotalEl = document.getElementById('cartSubtotalPrice');
+            const shippingEl = document.getElementById('cartShippingEstimate');
             const totalEl = document.getElementById('cartTotalPrice');
             
             const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const subtotalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const estimatedShipping = cart.length > 0 ? (cart.some(i => i.type === 'TV') ? 300 : 50) : 0;
 
-            if (totalItems > 0) { 
-                badge.textContent = totalItems; badge.classList.remove('hidden'); 
-                mobileBadge.textContent = totalItems; mobileBadge.classList.remove('hidden'); 
-            } else {
-                badge.classList.add('hidden'); mobileBadge.classList.add('hidden');
+            if (badge && mobileBadge) {
+                if (totalItems > 0) { 
+                    badge.textContent = totalItems; badge.classList.remove('hidden'); 
+                    mobileBadge.textContent = totalItems; mobileBadge.classList.remove('hidden'); 
+                } else {
+                    badge.classList.add('hidden'); mobileBadge.classList.add('hidden');
+                }
             }
-            totalEl.textContent = `฿${totalPrice.toLocaleString()}`;
+
+            if (subtotalEl) subtotalEl.textContent = `฿${subtotalPrice.toLocaleString()}`;
+            if (shippingEl) shippingEl.textContent = `฿${estimatedShipping} (ประเมิน)`;
+            if (totalEl) totalEl.textContent = `฿${(subtotalPrice + estimatedShipping).toLocaleString()}`;
+
+            if (!list) return;
 
             if (cart.length === 0) {
                 list.innerHTML = `<div class="text-center py-12 text-slate-400"><i class="fa-solid fa-cart-flatbed text-3xl mb-2 block"></i><p class="text-xs">ยังไม่มีสินค้าในตะกร้า</p></div>`;
@@ -739,23 +1042,45 @@
                 const img = item.image ? getDirectImageUrl(item.image.split(',')[0]) : '';
                 return `
                 <div class="flex items-center gap-3 pt-3">
-                    <img src="${img}" class="w-12 h-12 rounded-lg object-cover border border-slate-200">
+                    <img src="${img}" class="w-12 h-12 rounded-xl object-cover border border-slate-200">
                     <div class="flex-1 min-w-0">
                         <h4 class="text-xs font-bold text-slate-800 truncate">${item.title}</h4>
                         <div class="text-[10px] text-slate-500">พาร์ท: ${item.partNumber}</div>
-                        <div class="text-xs font-bold text-brand-600 mt-0.5">฿${item.price.toLocaleString()}</div>
+                        <div class="text-xs font-extrabold text-brand-600 mt-0.5">฿${item.price.toLocaleString()}</div>
                     </div>
                     <div class="flex items-center gap-1 bg-slate-100 rounded-lg p-1 text-xs">
-                        <button onclick="changeQty('${item.id}', -1)" class="w-5 h-5 flex items-center justify-center hover:bg-slate-200 rounded">-</button>
+                        <button onclick="changeQty('${item.id}', -1)" class="w-5 h-5 flex items-center justify-center hover:bg-slate-200 rounded font-bold">-</button>
                         <span class="w-6 text-center font-bold">${item.qty}</span>
-                        <button onclick="changeQty('${item.id}', 1)" class="w-5 h-5 flex items-center justify-center hover:bg-slate-200 rounded">+</button>
+                        <button onclick="changeQty('${item.id}', 1)" class="w-5 h-5 flex items-center justify-center hover:bg-slate-200 rounded font-bold">+</button>
                     </div>
                 </div>`
             }).join('');
         }
 
-        function toggleCartModal() { document.getElementById('cartModal').classList.toggle('hidden'); }
-        function toggleMobileFilterModal() { document.getElementById('mobileFilterModal').classList.toggle('hidden'); }
+        function toggleCartModal() { 
+            const modal = document.getElementById('cartModal');
+            if (modal) modal.classList.toggle('hidden'); 
+        }
+
+        function toggleMobileFilterModal() { 
+            const modal = document.getElementById('mobileFilterModal');
+            if (modal) modal.classList.toggle('hidden'); 
+        }
+
+        function directOrderLine(productId) {
+            const item = productsData.find(p => p.id === productId);
+            if (!item) return;
+
+            let orderText = `📦 สอบถามสั่งซื้อสินค้าด่วน\n`;
+            orderText += `------------------------\n`;
+            orderText += `สินค้า: ${item.title}\n`;
+            orderText += `รหัสพาร์ท: ${item.partNumber}\n`;
+            orderText += `ราคา: ฿${item.price.toLocaleString()}\n`;
+            orderText += `------------------------\n`;
+            orderText += `รบกวนเช็คสต๊อกและสรุปยอดรวมให้หน่อยครับ`;
+
+            copyTextAndOpenLine(orderText);
+        }
 
         function checkoutViaLine() {
             if (cart.length === 0) {
@@ -763,39 +1088,33 @@
                 return;
             }
 
-            let orderText = "📦 สั่งซื้อสินค้าจากหน้าเว็บ\n";
+            let orderText = "📦 สั่งซื้อสินค้าจาก Demon & Electronics\n";
             orderText += "------------------------\n";
             cart.forEach((item, index) => {
                 orderText += `${index + 1}. ${item.title}\n`;
-                orderText += `   (พาร์ท: ${item.partNumber}) x ${item.qty} ชิ้น\n`;
+                orderText += `   (พาร์ท: ${item.partNumber}) x ${item.qty} ชิ้น = ฿${(item.price * item.qty).toLocaleString()}\n`;
             });
             orderText += "------------------------\n";
             const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
             orderText += `💰 ยอดรวมสินค้า: ฿${total.toLocaleString()}\n`;
-            orderText += "รบกวนเช็คสต๊อกให้หน่อยครับ";
+            orderText += "รบกวนเช็คสต๊อกและแจ้งสรุปยอดรวมพร้อมค่าส่งให้หน่อยครับ";
 
+            copyTextAndOpenLine(orderText);
+        }
+
+        function copyTextAndOpenLine(text) {
             const tempTextArea = document.createElement("textarea");
-            tempTextArea.value = orderText;
+            tempTextArea.value = text;
             document.body.appendChild(tempTextArea);
             tempTextArea.select();
             
             try {
                 document.execCommand('copy');
-                const checkoutBtn = document.querySelector('#cartModal button[onclick="checkoutViaLine()"]');
-                const originalBtnHtml = checkoutBtn.innerHTML;
-                checkoutBtn.innerHTML = '<i class="fa-solid fa-check-circle text-lg"></i> คัดลอกแล้ว! กำลังเปิดแชท...';
-                
-                showToast('คัดลอกรายการแล้ว! กรุณากด "วาง" (Paste) ในแชทไลน์', 'success');
-                
-                setTimeout(() => {
-                    openLineChat();
-                    checkoutBtn.innerHTML = originalBtnHtml;
-                }, 1200);
-
+                showToast('คัดลอกรายการแล้ว! กำลังเปิด LINE...', 'success');
+                setTimeout(() => openLineChat(), 1000);
             } catch (err) {
                 console.error('Copy failed', err);
-                showToast('เกิดข้อผิดพลาด กรุณาทักแชทสั่งซื้อโดยตรง', 'error');
-                setTimeout(() => openLineChat(), 1500);
+                openLineChat();
             }
             
             document.body.removeChild(tempTextArea);
@@ -806,12 +1125,144 @@
             const toastMsg = document.getElementById('toastMessage');
             const toastIcon = document.getElementById('toastIcon');
             
+            if (!toast || !toastMsg || !toastIcon) return;
+
             toastMsg.textContent = message;
-            toastIcon.className = type === 'error' ? "fa-solid fa-circle-exclamation text-rose-400" : "fa-solid fa-circle-check text-emerald-400";
+            toastIcon.className = type === 'error' ? "fa-solid fa-circle-exclamation text-rose-400 text-base" : "fa-solid fa-circle-check text-emerald-400 text-base";
 
             toast.classList.remove('opacity-0', 'pointer-events-none');
             setTimeout(() => toast.classList.add('opacity-0', 'pointer-events-none'), 3000);
         }
+    </script>
+
+    <!-- Firebase SDK & Realtime Counter Integration -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, increment, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'demon-tv-parts';
+        let db = null;
+        let auth = null;
+        let statsDocRef = null;
+
+        async function initFirebaseStats() {
+            try {
+                if (typeof __firebase_config !== 'undefined') {
+                    const firebaseConfig = JSON.parse(__firebase_config);
+                    const app = initializeApp(firebaseConfig);
+                    db = getFirestore(app);
+                    auth = getAuth(app);
+
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+
+                    statsDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'site_stats', 'metrics');
+
+                    if (!sessionStorage.getItem('demon_visited')) {
+                        sessionStorage.setItem('demon_visited', 'true');
+                        await setDoc(statsDocRef, { views: increment(1) }, { merge: true });
+                    }
+
+                    onSnapshot(statsDocRef, (snapshot) => {
+                        if (snapshot.exists()) {
+                            const data = snapshot.data();
+                            updateStatsUI(data.views || 0, data.likes || 0);
+                        } else {
+                            updateStatsUI(1, 0);
+                        }
+                    }, (err) => {
+                        console.warn('Firestore snapshot error:', err);
+                        fallbackLocalStats();
+                    });
+                } else {
+                    fallbackLocalStats();
+                }
+            } catch (err) {
+                console.warn('Firebase init fallback:', err);
+                fallbackLocalStats();
+            }
+        }
+
+        function fallbackLocalStats() {
+            let localViews = parseInt(localStorage.getItem('local_site_views') || '1');
+            if (!sessionStorage.getItem('demon_visited')) {
+                sessionStorage.setItem('demon_visited', 'true');
+                localViews += 1;
+                localStorage.setItem('local_site_views', localViews);
+            }
+            let localLikes = parseInt(localStorage.getItem('local_site_likes') || '0');
+            updateStatsUI(localViews, localLikes);
+        }
+
+        function updateStatsUI(views, likes) {
+            const viewsText = views ? Number(views).toLocaleString() : '0';
+            const likesText = likes ? Number(likes).toLocaleString() : '0';
+
+            const headerViews = document.getElementById('headerVisitorCount');
+            const headerLikes = document.getElementById('headerLikeCount');
+            const heroViews = document.getElementById('heroVisitorCount');
+            const heroLikes = document.getElementById('heroLikeCount');
+
+            if (headerViews) headerViews.textContent = viewsText;
+            if (headerLikes) headerLikes.textContent = likesText;
+            if (heroViews) heroViews.textContent = viewsText;
+            if (heroLikes) heroLikes.textContent = likesText;
+
+            const hasLiked = localStorage.getItem('demon_liked_site') === 'true';
+            updateLikeBtnStyle(hasLiked);
+        }
+
+        function updateLikeBtnStyle(isLiked) {
+            const btn = document.getElementById('headerLikeBtn');
+            const icon = document.getElementById('headerLikeIcon');
+            if (!btn || !icon) return;
+
+            if (isLiked) {
+                btn.classList.add('bg-rose-500/30', 'border-rose-400');
+                icon.classList.add('scale-125');
+            } else {
+                btn.classList.remove('bg-rose-500/30', 'border-rose-400');
+                icon.classList.remove('scale-125');
+            }
+        }
+
+        window.toggleSiteLike = async function() {
+            const hasLiked = localStorage.getItem('demon_liked_site') === 'true';
+            const newLikedState = !hasLiked;
+
+            if (newLikedState) {
+                localStorage.setItem('demon_liked_site', 'true');
+                showToast('ขอบคุณที่กดถูกใจร้านค้าของเราครับ! ❤️');
+
+                if (db && statsDocRef) {
+                    await setDoc(statsDocRef, { likes: increment(1) }, { merge: true });
+                } else {
+                    let localLikes = parseInt(localStorage.getItem('local_site_likes') || '0') + 1;
+                    localStorage.setItem('local_site_likes', localLikes);
+                    const localViews = parseInt(localStorage.getItem('local_site_views') || '1');
+                    updateStatsUI(localViews, localLikes);
+                }
+            } else {
+                localStorage.removeItem('demon_liked_site');
+                showToast('ยกเลิกการถูกใจแล้ว', 'error');
+
+                if (db && statsDocRef) {
+                    await setDoc(statsDocRef, { likes: increment(-1) }, { merge: true });
+                } else {
+                    let localLikes = Math.max(0, parseInt(localStorage.getItem('local_site_likes') || '0') - 1);
+                    localStorage.setItem('local_site_likes', localLikes);
+                    const localViews = parseInt(localStorage.getItem('local_site_views') || '1');
+                    updateStatsUI(localViews, localLikes);
+                }
+            }
+            updateLikeBtnStyle(newLikedState);
+        };
+
+        window.addEventListener('DOMContentLoaded', initFirebaseStats);
     </script>
 </body>
 </html>
