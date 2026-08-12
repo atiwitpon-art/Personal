@@ -149,17 +149,6 @@
                 <p class="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto lg:mx-0 leading-relaxed">
                     จำหน่ายเมนบอร์ด (Mainboard), พาวเวอร์บอร์ด (Power Supply), บอร์ด T-Con, สายแพร และหลอดแบ็คไลท์ ทุกรุ่นทุกแบรนด์ ถอดจากเครื่องสภาพดีเยี่ยม
                 </p>
-
-                <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs text-slate-300">
-                    <div class="bg-slate-800/80 backdrop-blur px-3 py-1.5 rounded-xl border border-slate-700/80 flex items-center gap-2">
-                        <i class="fa-solid fa-users text-amber-400 text-sm"></i>
-                        <span>ผู้เข้าชมเว็บทั้งหมด <strong id="heroVisitorCount" class="text-white font-bold">...</strong> ครั้ง</span>
-                    </div>
-                    <button onclick="toggleSiteLike()" class="bg-rose-950/60 hover:bg-rose-900/60 text-rose-200 px-3 py-1.5 rounded-xl border border-rose-800/60 flex items-center gap-2 transition cursor-pointer">
-                        <i class="fa-solid fa-heart text-rose-500 text-sm"></i>
-                        <span>ความไว้วางใจ <strong id="heroLikeCount" class="text-white font-bold">...</strong> ถูกใจ</span>
-                    </button>
-                </div>
             </div>
 
             <!-- Quick Part Checker Box -->
@@ -501,9 +490,6 @@
     </footer>
 
     <script>
-        // =========================================================================
-        // Configuration & Global State
-        // =========================================================================
         const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbywxM1xc28G7ZeYbtHa_l2X3AIKz0MXe_VAtZxcLGJeCpOEYDHdNaEh-LV8P4gEaBY/exec';
         const LINE_CHAT_URL = 'https://line.me/ti/p/~p-mon_alone'; 
 
@@ -612,12 +598,10 @@
             const sortBy = document.getElementById('sortBy')?.value || 'recommended';
 
             let filtered = productsData.filter(p => {
-                // Category Filter
                 if (currentCategory !== 'all') {
                     if (currentCategory === 'Clearance' && p.type !== 'Clearance') return false;
                     if (currentCategory !== 'Clearance' && p.type !== currentCategory) return false;
                 }
-                // Search Query Filter
                 if (searchQuery.trim() !== '') {
                     const q = searchQuery.toLowerCase();
                     const matchTitle = p.title.toLowerCase().includes(q);
@@ -625,13 +609,9 @@
                     const matchModel = p.compatibleModels.some(m => m.toLowerCase().includes(q));
                     if (!matchTitle && !matchPart && !matchModel) return false;
                 }
-                // Brand Filter
                 if (selectedBrands.length > 0 && !selectedBrands.includes(p.brand)) return false;
-                // Condition Filter
                 if (selectedConditions.length > 0 && !selectedConditions.some(c => p.condition.includes(c))) return false;
-                // Price Filter
                 if (p.price < minPriceFilter || p.price > maxPriceFilter) return false;
-                // In Stock Only Filter
                 if (inStockOnly) {
                     const isSoldOut = p.status && (p.status.includes('ขายแล้ว') || p.status.includes('หมด') || p.status.toLowerCase().includes('sold'));
                     if (isSoldOut) return false;
